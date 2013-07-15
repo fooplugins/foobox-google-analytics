@@ -1,0 +1,14 @@
+$('.foobox-instance').bind('foobox_image_onload', function(e) {
+
+	if (typeof ga != 'undefined') {
+
+	    ga('send', 'pageview', e.thumb.target);
+	    ga('send', 'event', 'Images', 'View', e.thumb.target);
+
+    } else if (typeof _gaq != 'undefined') {
+
+        _gaq.push(['_trackPageview', e.thumb.target]);
+		_gaq.push(['_trackEvent', 'Images', 'View', e.thumb.target]);
+
+    }
+});
