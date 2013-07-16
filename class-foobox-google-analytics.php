@@ -164,9 +164,9 @@ class FooBox_Extension_For_Google_Analytics {
 		$gaq_js = '';
 
 		if ($track_pageviews === true) {
-			$ga_js .= "ga('send', 'pageview', e.thumb.target);
+			$ga_js .= "ga('send', 'pageview', trackUrl);
 					";
-			$gaq_js .= "_gaq.push(['_trackPageview', e.thumb.target]);
+			$gaq_js .= "_gaq.push(['_trackPageview', trackUrl]);
 					";
 		}
 
@@ -175,11 +175,14 @@ class FooBox_Extension_For_Google_Analytics {
 			$gaq_js .= "_gaq.push(['_trackEvent', '$event_category', '$event_action', e.thumb.target]);";
 		}
 
+		$base_url = untrailingslashit( home_url() );
+
 		$js = "
 	/* FooBox Google Analytics code */
 	(function( FOOBOX, $, undefined ) {
 		FOOBOX.setup_ga = function() {
 			$('.foobox-instance').bind('foobox_image_onload', function(e) {
+				var trackUrl = e.thumb.target.replace('{$base_url}', '');
 				if (typeof ga != 'undefined') {
 					{$ga_js}
 				} else if (typeof _gaq != 'undefined') {
