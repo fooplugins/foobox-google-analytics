@@ -185,7 +185,6 @@ class FooBox_Extension_For_Google_Analytics {
 		$track_social = $foobox->is_option_checked('ga_track_social', true);
 		$social_category = $foobox->get_option('ga_social_category', 'Social Share');
 
-
 		if ($track_pageviews === false && $track_events === false && $track_social === false) {
 			//got nothing to do here
 			return;

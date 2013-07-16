@@ -19,7 +19,8 @@ Adds a small script to the page to hook up FooBox and Google Analytics. When ima
 == Installation ==
 
 1. Upload directory `foobox-google-analytics` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Check out the new "Google Analytics" tab which you can find in your FooBox settings page
 
 == Changelog ==
 
