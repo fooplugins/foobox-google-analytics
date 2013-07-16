@@ -18,7 +18,7 @@ class FooBox_Extension_For_Google_Analytics {
 	 *
 	 * @var     string
 	 */
-	protected $version = '1.0.0';
+	protected $version = '1.0.1';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -207,8 +207,6 @@ class FooBox_Extension_For_Google_Analytics {
 					";
 			}
 		}
-
-		//foobox-social
 
 		if ($track_events === true) {
 			$ga_js .= "ga('send', 'event', '$event_category', '$event_action', e.thumb.target);";
