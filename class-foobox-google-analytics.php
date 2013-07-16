@@ -139,6 +139,24 @@ class FooBox_Extension_For_Google_Analytics {
 				'tab'   => 'ga'
 			));
 
+			$foobox->admin_settings_add(array(
+				'id'      => 'ga_track_social',
+				'title'   => __('Enable Social Tracking', 'foobox'),
+				'desc'    => __('If enabled, all social shares from FooBox will be tracked as an event in Google Analytics.', 'foobox'),
+				'default' => 'on',
+				'type'    => 'checkbox',
+				'tab'     => 'ga'
+			));
+
+			$foobox->admin_settings_add(array(
+				'id'    => 'ga_social_category',
+				'title' => 'Social Category',
+				'desc'  => __('Used in social tracking, this is the category used when tracking social share events from FooBox.', 'foobox'),
+				'default' => 'Social Share',
+				'type'  => 'text',
+				'tab'   => 'ga'
+			));
+
 			if ($foobox->is_option_checked('enable_debug')) {
 				$foobox->admin_settings_add(array(
 					'id'      => 'ga_output',
@@ -162,11 +180,13 @@ class FooBox_Extension_For_Google_Analytics {
 		$track_pageviews = $foobox->is_option_checked('ga_track_pageviews', true);
 		$track_events = $foobox->is_option_checked('ga_track_events', true);
 		$track_deeplinks = !$foobox->is_option_checked('disble_deeplinking') && $foobox->is_option_checked('ga_deeplink_pageviews', true);
-
 		$event_category = $foobox->get_option('ga_event_category', 'Images');
 		$event_action = $foobox->get_option('ga_event_action', 'View');
+		$track_social = $foobox->is_option_checked('ga_track_social', true);
+		$social_category = $foobox->get_option('ga_social_category', 'Social Share');
 
-		if ($track_pageviews === false && $track_events === false) {
+
+		if ($track_pageviews === false && $track_events === false && $track_social === false) {
 			//got nothing to do here
 			return;
 		}
@@ -176,9 +196,9 @@ class FooBox_Extension_For_Google_Analytics {
 
 		if ($track_pageviews === true) {
 			if ($track_deeplinks) {
-				$ga_js .= "ga('send', 'pageview');
+				$ga_js .= "ga('send', 'pageview', location.pathname + location.search  + location.hash);
 					";
-				$gaq_js .= "_gaq.push(['_trackPageview']);
+				$gaq_js .= "_gaq.push(['_trackPageview', location.pathname + location.search  + location.hash]);
 					";
 			} else {
 				$ga_js .= "ga('send', 'pageview', trackUrl);
@@ -188,9 +208,25 @@ class FooBox_Extension_For_Google_Analytics {
 			}
 		}
 
+		//foobox-social
+
 		if ($track_events === true) {
 			$ga_js .= "ga('send', 'event', '$event_category', '$event_action', e.thumb.target);";
 			$gaq_js .= "_gaq.push(['_trackEvent', '$event_category', '$event_action', e.thumb.target]);";
+		}
+
+		if ($track_social === true) {
+			$ga_social = "$('.foobox-social a').click(function(e) {
+				var social_action = $(this).attr('title'),
+					social_url = $(this).attr('href');
+				if (typeof ga != 'undefined') {
+					ga('send', 'event', '{$social_category}', social_action, social_url);
+				} else if (typeof _gaq != 'undefined') {
+					_gaq.push(['_trackEvent', '{$social_category}', social_action, social_url]);
+				}
+			});";
+		} else {
+			$ga_social = '';
 		}
 
 		$base_url = untrailingslashit( home_url() );
@@ -207,6 +243,7 @@ class FooBox_Extension_For_Google_Analytics {
 					{$gaq_js}
 				}
 			});
+			{$ga_social}
 		};
 	}( window.FOOBOX = window.FOOBOX || {}, jQuery ));
 
