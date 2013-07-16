@@ -104,6 +104,15 @@ class FooBox_Extension_For_Google_Analytics {
 			));
 
 			$foobox->admin_settings_add(array(
+				'id'      => 'ga_deeplink_pageviews',
+				'title'   => __('Track Deeplink Pageviews', 'foobox'),
+				'desc'    => __('If both pageview tracking and FooBox deeplinking is enabled, then the deeplink URL will be recorded in Google Analytics.', 'foobox'),
+				'default' => 'on',
+				'type'    => 'checkbox',
+				'tab'     => 'ga'
+			));
+
+			$foobox->admin_settings_add(array(
 				'id'      => 'ga_track_events',
 				'title'   => __('Enable Event Tracking', 'foobox'),
 				'desc'    => __('If enabled, a custom event will be recorded when an image is opened in FooBox.', 'foobox'),
@@ -152,6 +161,8 @@ class FooBox_Extension_For_Google_Analytics {
 
 		$track_pageviews = $foobox->is_option_checked('ga_track_pageviews', true);
 		$track_events = $foobox->is_option_checked('ga_track_events', true);
+		$track_deeplinks = !$foobox->is_option_checked('disble_deeplinking') && $foobox->is_option_checked('ga_deeplink_pageviews', true);
+
 		$event_category = $foobox->get_option('ga_event_category', 'Images');
 		$event_action = $foobox->get_option('ga_event_action', 'View');
 
@@ -164,10 +175,17 @@ class FooBox_Extension_For_Google_Analytics {
 		$gaq_js = '';
 
 		if ($track_pageviews === true) {
-			$ga_js .= "ga('send', 'pageview', trackUrl);
+			if ($track_deeplinks) {
+				$ga_js .= "ga('send', 'pageview');
 					";
-			$gaq_js .= "_gaq.push(['_trackPageview', trackUrl]);
+				$gaq_js .= "_gaq.push(['_trackPageview']);
 					";
+			} else {
+				$ga_js .= "ga('send', 'pageview', trackUrl);
+					";
+				$gaq_js .= "_gaq.push(['_trackPageview', trackUrl]);
+					";
+			}
 		}
 
 		if ($track_events === true) {
