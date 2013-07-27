@@ -51,11 +51,22 @@ class FooBox_Extension_For_Google_Analytics {
 	public static function get_instance() {
 
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
+		if (null == self::$instance) {
 			self::$instance = new self;
 		}
 
 		return self::$instance;
+	}
+
+	/**
+	 * Return the plugin slug.
+	 *
+	 * @since     1.0.1
+	 *
+	 * @return    string    The plugin slug
+	 */
+	public function get_slug() {
+		return $this->plugin_slug;
 	}
 
 	/**
@@ -65,19 +76,27 @@ class FooBox_Extension_For_Google_Analytics {
 	 */
 	private function __construct() {
 
-		if ( is_admin() ) {
+		if (is_admin()) {
 
-			add_action( 'foobox_pre_tab', array( $this, 'add_ga_settings_tab' ) );
+			add_action('foobox_pre_tab', array($this, 'add_ga_settings_tab'));
 
 		} else {
 
-			add_action('init', array( $this, 'init_scripts' ) );
+			add_action('init', array($this, 'init_scripts'));
 
 		}
 	}
 
+	private function get_foobox() {
+		if (array_key_exists('foobox', $GLOBALS)) {
+			return $GLOBALS['foobox'];
+		}
+		return false;
+	}
+
 	public function init_scripts() {
-		$foobox = $GLOBALS['foobox'];
+		$foobox = $this->get_foobox();
+		if ($foobox === false) return;
 
 		$where = 'wp_head';
 
@@ -89,8 +108,9 @@ class FooBox_Extension_For_Google_Analytics {
 	}
 
 	public function add_ga_settings_tab($tab_id) {
-		if ( $tab_id === 'demo' ) {
+		if ($tab_id === 'demo') {
 			$foobox = $GLOBALS['foobox'];
+			if ($foobox === false) return;
 
 			$foobox->admin_settings_add_tab('ga', __('Google Analytics', 'foobox'));
 
@@ -122,21 +142,21 @@ class FooBox_Extension_For_Google_Analytics {
 			));
 
 			$foobox->admin_settings_add(array(
-				'id'    => 'ga_event_category',
-				'title' => 'Event Category',
-				'desc'  => __('Used in event tracking, this is the name for the group of objects you want to track. In this scenario, the group of objects are your images shown within FooBox.', 'foobox'),
+				'id'      => 'ga_event_category',
+				'title'   => 'Event Category',
+				'desc'    => __('Used in event tracking, this is the name for the group of objects you want to track. In this scenario, the group of objects are your images shown within FooBox.', 'foobox'),
 				'default' => 'Images',
-				'type'  => 'text',
-				'tab'   => 'ga'
+				'type'    => 'text',
+				'tab'     => 'ga'
 			));
 
 			$foobox->admin_settings_add(array(
-				'id'    => 'ga_event_action',
-				'title' => 'Event Action',
-				'desc'  => __('Used in event tracking, this is the name for the type of user interaction. In this scenario, viewing the image within FooBox.', 'foobox'),
+				'id'      => 'ga_event_action',
+				'title'   => 'Event Action',
+				'desc'    => __('Used in event tracking, this is the name for the type of user interaction. In this scenario, viewing the image within FooBox.', 'foobox'),
 				'default' => 'View',
-				'type'  => 'text',
-				'tab'   => 'ga'
+				'type'    => 'text',
+				'tab'     => 'ga'
 			));
 
 			$foobox->admin_settings_add(array(
@@ -149,21 +169,21 @@ class FooBox_Extension_For_Google_Analytics {
 			));
 
 			$foobox->admin_settings_add(array(
-				'id'    => 'ga_social_category',
-				'title' => 'Social Category',
-				'desc'  => __('Used in social tracking, this is the category used when tracking social share events from FooBox.', 'foobox'),
+				'id'      => 'ga_social_category',
+				'title'   => 'Social Category',
+				'desc'    => __('Used in social tracking, this is the category used when tracking social share events from FooBox.', 'foobox'),
 				'default' => 'Social Share',
-				'type'  => 'text',
-				'tab'   => 'ga'
+				'type'    => 'text',
+				'tab'     => 'ga'
 			));
 
 			if ($foobox->is_option_checked('enable_debug')) {
 				$foobox->admin_settings_add(array(
-					'id'      => 'ga_output',
-					'title'   => __('Javscript Output (Debug)', 'foobox'),
-					'type'    => 'html',
-					'desc'	  => '<pre>' . htmlentities( $this->generate_javascript() ) . '</pre>',
-					'tab'     => 'ga'
+					'id'    => 'ga_output',
+					'title' => __('Javscript Output (Debug)', 'foobox'),
+					'type'  => 'html',
+					'desc'  => '<pre>' . htmlentities($this->generate_javascript()) . '</pre>',
+					'tab'   => 'ga'
 				));
 			}
 		}
@@ -174,15 +194,15 @@ class FooBox_Extension_For_Google_Analytics {
 	}
 
 	public function generate_javascript() {
-
 		$foobox = $GLOBALS['foobox'];
+		if ($foobox === false) return;
 
 		$track_pageviews = $foobox->is_option_checked('ga_track_pageviews', true);
-		$track_events = $foobox->is_option_checked('ga_track_events', true);
+		$track_events    = $foobox->is_option_checked('ga_track_events', true);
 		$track_deeplinks = !$foobox->is_option_checked('disble_deeplinking') && $foobox->is_option_checked('ga_deeplink_pageviews', true);
-		$event_category = $foobox->get_option('ga_event_category', 'Images');
-		$event_action = $foobox->get_option('ga_event_action', 'View');
-		$track_social = $foobox->is_option_checked('ga_track_social', true);
+		$event_category  = $foobox->get_option('ga_event_category', 'Images');
+		$event_action    = $foobox->get_option('ga_event_action', 'View');
+		$track_social    = $foobox->is_option_checked('ga_track_social', true);
 		$social_category = $foobox->get_option('ga_social_category', 'Social Share');
 
 		if ($track_pageviews === false && $track_events === false && $track_social === false) {
@@ -190,7 +210,7 @@ class FooBox_Extension_For_Google_Analytics {
 			return;
 		}
 
-		$ga_js = '';
+		$ga_js  = '';
 		$gaq_js = '';
 
 		if ($track_pageviews === true) {
@@ -226,7 +246,7 @@ class FooBox_Extension_For_Google_Analytics {
 			$ga_social = '';
 		}
 
-		$base_url = untrailingslashit( home_url() );
+		$base_url = untrailingslashit(home_url());
 
 		$js = "
 	/* FooBox Google Analytics code */
@@ -248,6 +268,7 @@ class FooBox_Extension_For_Google_Analytics {
 		FOOBOX.setup_ga();
 	});
 ";
+
 		return '<script type="text/javascript">' . $js . '</script>';
 	}
 }
