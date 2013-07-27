@@ -29,6 +29,16 @@ if ( ! defined( 'WPINC' ) ) {
 
 //include plugin class
 require_once( plugin_dir_path( __FILE__ ) . 'class-foobox-google-analytics.php' );
+//include update checker
+require_once( plugin_dir_path( __FILE__ ) . '/includes/foolic_update_checker_v1_5_1.php');
 
 //run it baby!
-FooBox_Extension_For_Google_Analytics::get_instance();
+$foobox_google_analytics = FooBox_Extension_For_Google_Analytics::get_instance();
+
+//initialize plugin update checks with fooplugins.com
+new foolic_update_checker_v1_5_1(
+	__FILE__, //the plugin file
+	'http://fooplugins.com/api/foobox-google-analytics-extension/check', //the URL to check for updates
+	$foobox_google_analytics->get_slug(),
+	''
+);
