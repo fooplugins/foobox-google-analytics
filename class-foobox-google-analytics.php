@@ -18,7 +18,7 @@ class FooBox_Extension_For_Google_Analytics {
 	 *
 	 * @var     string
 	 */
-	protected $version = '1.0.1';
+	protected $version = '1.0.2';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -112,12 +112,12 @@ class FooBox_Extension_For_Google_Analytics {
 			$foobox = $GLOBALS['foobox'];
 			if ($foobox === false) return;
 
-			$foobox->admin_settings_add_tab('ga', __('Google Analytics', 'foobox'));
+			$foobox->admin_settings_add_tab('ga', __('Google Analytics', 'foobox-google-analytics'));
 
 			$foobox->admin_settings_add(array(
 				'id'      => 'ga_track_pageviews',
-				'title'   => __('Enable Pageview Tracking', 'foobox'),
-				'desc'    => __('If enabled, a pageview will be recorded when an image is opened in FooBox.', 'foobox'),
+				'title'   => __('Enable Pageview Tracking', 'foobox-google-analytics'),
+				'desc'    => __('If enabled, a pageview will be recorded when an image is opened in FooBox.', 'foobox-google-analytics'),
 				'default' => 'on',
 				'type'    => 'checkbox',
 				'tab'     => 'ga'
@@ -125,8 +125,8 @@ class FooBox_Extension_For_Google_Analytics {
 
 			$foobox->admin_settings_add(array(
 				'id'      => 'ga_deeplink_pageviews',
-				'title'   => __('Track Deeplink Pageviews', 'foobox'),
-				'desc'    => __('If both pageview tracking and FooBox deeplinking is enabled, then the deeplink URL will be recorded in Google Analytics.', 'foobox'),
+				'title'   => __('Track Deeplink Pageviews', 'foobox-google-analytics'),
+				'desc'    => __('If both pageview tracking and FooBox deeplinking is enabled, then the deeplink URL will be recorded in Google Analytics.', 'foobox-google-analytics'),
 				'default' => 'on',
 				'type'    => 'checkbox',
 				'tab'     => 'ga'
@@ -134,8 +134,8 @@ class FooBox_Extension_For_Google_Analytics {
 
 			$foobox->admin_settings_add(array(
 				'id'      => 'ga_track_events',
-				'title'   => __('Enable Event Tracking', 'foobox'),
-				'desc'    => __('If enabled, a custom event will be recorded when an image is opened in FooBox.', 'foobox'),
+				'title'   => __('Enable Event Tracking', 'foobox-google-analytics'),
+				'desc'    => __('If enabled, a custom event will be recorded when an image is opened in FooBox.', 'foobox-google-analytics'),
 				'default' => 'on',
 				'type'    => 'checkbox',
 				'tab'     => 'ga'
@@ -144,7 +144,7 @@ class FooBox_Extension_For_Google_Analytics {
 			$foobox->admin_settings_add(array(
 				'id'      => 'ga_event_category',
 				'title'   => 'Event Category',
-				'desc'    => __('Used in event tracking, this is the name for the group of objects you want to track. In this scenario, the group of objects are your images shown within FooBox.', 'foobox'),
+				'desc'    => __('Used in event tracking, this is the name for the group of objects you want to track. In this scenario, the group of objects are your images shown within FooBox.', 'foobox-google-analytics'),
 				'default' => 'Images',
 				'type'    => 'text',
 				'tab'     => 'ga'
@@ -153,7 +153,7 @@ class FooBox_Extension_For_Google_Analytics {
 			$foobox->admin_settings_add(array(
 				'id'      => 'ga_event_action',
 				'title'   => 'Event Action',
-				'desc'    => __('Used in event tracking, this is the name for the type of user interaction. In this scenario, viewing the image within FooBox.', 'foobox'),
+				'desc'    => __('Used in event tracking, this is the name for the type of user interaction. In this scenario, viewing the image within FooBox.', 'foobox-google-analytics'),
 				'default' => 'View',
 				'type'    => 'text',
 				'tab'     => 'ga'
@@ -161,8 +161,8 @@ class FooBox_Extension_For_Google_Analytics {
 
 			$foobox->admin_settings_add(array(
 				'id'      => 'ga_track_social',
-				'title'   => __('Enable Social Tracking', 'foobox'),
-				'desc'    => __('If enabled, all social shares from FooBox will be tracked as an event in Google Analytics.', 'foobox'),
+				'title'   => __('Enable Social Tracking', 'foobox-google-analytics'),
+				'desc'    => __('If enabled, all social shares from FooBox will be tracked as an event in Google Analytics.', 'foobox-google-analytics'),
 				'default' => 'on',
 				'type'    => 'checkbox',
 				'tab'     => 'ga'
@@ -171,7 +171,7 @@ class FooBox_Extension_For_Google_Analytics {
 			$foobox->admin_settings_add(array(
 				'id'      => 'ga_social_category',
 				'title'   => 'Social Category',
-				'desc'    => __('Used in social tracking, this is the category used when tracking social share events from FooBox.', 'foobox'),
+				'desc'    => __('Used in social tracking, this is the category used when tracking social share events from FooBox.', 'foobox-google-analytics'),
 				'default' => 'Social Share',
 				'type'    => 'text',
 				'tab'     => 'ga'
@@ -180,7 +180,7 @@ class FooBox_Extension_For_Google_Analytics {
 			if ($foobox->is_option_checked('enable_debug')) {
 				$foobox->admin_settings_add(array(
 					'id'    => 'ga_output',
-					'title' => __('Javscript Output (Debug)', 'foobox'),
+					'title' => __('Javscript Output (Debug)', 'foobox-google-analytics'),
 					'type'  => 'html',
 					'desc'  => '<pre>' . htmlentities($this->generate_javascript()) . '</pre>',
 					'tab'   => 'ga'
