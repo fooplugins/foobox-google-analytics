@@ -14,10 +14,10 @@
  * Plugin Name: FooBox Google Analytics Extension
  * Plugin URI:  https://github.com/fooplugins/foobox-google-analytics
  * Description: Allows you to track Google Analytics events when viewing images in FooBox
- * Version:     1.0.1
+ * Version:     1.0.2
  * Author:      bradvin
  * Author URI:  http://fooplugins.com
- * Text Domain: foobox
+ * Text Domain: foobox-google-analytics
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
