@@ -18,6 +18,7 @@
  * Author:      bradvin
  * Author URI:  http://fooplugins.com
  * Text Domain: foobox-google-analytics
+ * Domain Path: /languages
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
