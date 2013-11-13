@@ -31,15 +31,17 @@ if ( ! defined( 'WPINC' ) ) {
 //include plugin class
 require_once( plugin_dir_path( __FILE__ ) . 'class-foobox-google-analytics.php' );
 //include update checker
-require_once( plugin_dir_path( __FILE__ ) . '/includes/foolic_update_checker_v1_5_1.php');
+require_once( plugin_dir_path( __FILE__ ) . '/includes/foolic_update_checker.php');
 
 //run it baby!
 $foobox_google_analytics = FooBox_Extension_For_Google_Analytics::get_instance();
 
 //initialize plugin update checks with fooplugins.com
-new foolic_update_checker_v1_5_1(
-	__FILE__, //the plugin file
-	'http://fooplugins.com/api/foobox-google-analytics-extension/check', //the URL to check for updates
-	$foobox_google_analytics->get_slug(),
-	''
+$foobox_google_analytics_update = foolic_update_checker::get_instance();
+
+$foobox_google_analytics_update->update_checker(
+	__FILE__, // $plugin_file
+	'http://fooplugins.com/api/foobox-google-analytics-extension/check', // $plugin_update_url
+	$foobox_google_analytics->get_slug(), // $plugin_slug
+	'' // $license_key
 );
