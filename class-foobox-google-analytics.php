@@ -180,7 +180,7 @@ class FooBox_Extension_For_Google_Analytics {
 			if ($foobox->is_option_checked('enable_debug')) {
 				$foobox->admin_settings_add(array(
 					'id'    => 'ga_output',
-					'title' => __('Javscript Output (Debug)', 'foobox-google-analytics'),
+					'title' => __( 'Javascript Output (Debug)', 'foobox-google-analytics' ),
 					'type'  => 'html',
 					'desc'  => '<pre>' . htmlentities($this->generate_javascript()) . '</pre>',
 					'tab'   => 'ga'
