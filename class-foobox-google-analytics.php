@@ -145,7 +145,7 @@ class FooBox_Extension_For_Google_Analytics {
 				'id'      => 'ga_event_category',
 				'title'   => 'Event Category',
 				'desc'    => __('Used in event tracking, this is the name for the group of objects you want to track. In this scenario, the group of objects are your images shown within FooBox.', 'foobox-google-analytics'),
-				'default' => 'Images',
+				'default' => __( 'Images', 'foobox-google-analytics' ),
 				'type'    => 'text',
 				'tab'     => 'ga'
 			));
@@ -154,7 +154,7 @@ class FooBox_Extension_For_Google_Analytics {
 				'id'      => 'ga_event_action',
 				'title'   => 'Event Action',
 				'desc'    => __('Used in event tracking, this is the name for the type of user interaction. In this scenario, viewing the image within FooBox.', 'foobox-google-analytics'),
-				'default' => 'View',
+				'default' => __( 'View', 'foobox-google-analytics' ),
 				'type'    => 'text',
 				'tab'     => 'ga'
 			));
@@ -172,7 +172,7 @@ class FooBox_Extension_For_Google_Analytics {
 				'id'      => 'ga_social_category',
 				'title'   => 'Social Category',
 				'desc'    => __('Used in social tracking, this is the category used when tracking social share events from FooBox.', 'foobox-google-analytics'),
-				'default' => 'Social Share',
+				'default' => __( 'Social Share', 'foobox-google-analytics' ),
 				'type'    => 'text',
 				'tab'     => 'ga'
 			));
