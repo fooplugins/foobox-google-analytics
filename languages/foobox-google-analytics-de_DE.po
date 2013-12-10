@@ -1,0 +1,166 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FooBox Google Analytics Extension v1.0.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-12-10 12:05:11+0000\n"
+"Last-Translator: admin <admin@local.dev>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: class-foobox-google-analytics.php:120
+#@ foobox-google-analytics
+msgid "Google Analytics"
+msgstr "Google Analytics"
+
+#: class-foobox-google-analytics.php:124
+#@ foobox-google-analytics
+msgid "Enable Pageview Tracking"
+msgstr "Pageview-Tracking aktiviert"
+
+#: class-foobox-google-analytics.php:125
+#@ foobox-google-analytics
+msgid "If enabled, a pageview will be recorded when an image is opened in FooBox."
+msgstr "Einen Pageview tracken, wenn ein Bild in FooBox geöffnet wird."
+
+#: class-foobox-google-analytics.php:133
+#@ foobox-google-analytics
+msgid "Track Deeplink Pageviews"
+msgstr "Deeplink-Pageviews tracken"
+
+#: class-foobox-google-analytics.php:134
+#@ foobox-google-analytics
+msgid "If both pageview tracking and FooBox deeplinking is enabled, then the deeplink URL will be recorded in Google Analytics."
+msgstr "Deeplink-URL von Google Analytics aufzeichnen lassen, falls sowohl Pageview-Tracking als auch FooBox-Deeplinking aktiviert sind."
+
+#: class-foobox-google-analytics.php:142
+#@ foobox-google-analytics
+msgid "Enable Event Tracking"
+msgstr "Event-Tracking aktiviert"
+
+#: class-foobox-google-analytics.php:143
+#@ foobox-google-analytics
+msgid "If enabled, a custom event will be recorded when an image is opened in FooBox."
+msgstr "Ein benutzerdefiniertes Event tracken, wenn ein Bild in FooBox geöffnet wird."
+
+#: class-foobox-google-analytics.php:152
+#@ foobox-google-analytics
+msgid "Used in event tracking, this is the name for the group of objects you want to track. In this scenario, the group of objects are your images shown within FooBox."
+msgstr "Gruppenname für das Event-Tracking. In diesem Fall Bilder, die in FooBox angezeigt werden."
+
+#: class-foobox-google-analytics.php:161
+#@ foobox-google-analytics
+msgid "Used in event tracking, this is the name for the type of user interaction. In this scenario, viewing the image within FooBox."
+msgstr "Bezeichnung der Benutzer-Interaktion für das Event-Tracking . In diesem Fall das Betrachten eines Bildes in FooBox."
+
+#: class-foobox-google-analytics.php:169
+#@ foobox-google-analytics
+msgid "Enable Social Tracking"
+msgstr "Social-Tracking aktiviert"
+
+#: class-foobox-google-analytics.php:170
+#@ foobox-google-analytics
+msgid "If enabled, all social shares from FooBox will be tracked as an event in Google Analytics."
+msgstr "Alle Social Shares über FooBox als Event durch Google Analytics tracken."
+
+#: class-foobox-google-analytics.php:179
+#@ foobox-google-analytics
+msgid "Used in social tracking, this is the category used when tracking social share events from FooBox."
+msgstr "Genutzt für Social-Tracking. Dies ist die Kategorie, die für das Tracken von Social-Share Events über FooBox genutzt wird."
+
+#. translators: plugin header field 'Name'
+#: foobox-google-analytics.php:0
+#@ foobox-google-analytics
+msgid "FooBox Google Analytics Extension"
+msgstr "FooBox Google Analytics Extension"
+
+#. translators: plugin header field 'PluginURI'
+#: foobox-google-analytics.php:0
+#@ foobox-google-analytics
+msgid "https://github.com/fooplugins/foobox-google-analytics"
+msgstr "https://github.com/fooplugins/foobox-google-analytics"
+
+#. translators: plugin header field 'Description'
+#: foobox-google-analytics.php:0
+#@ foobox-google-analytics
+msgid "Allows you to track Google Analytics events when viewing images in FooBox"
+msgstr "Ermöglicht es Google Analytics Events zu tracken, wenn ein Bild in FooBox angezeigt wird"
+
+#. translators: plugin header field 'Author'
+#: foobox-google-analytics.php:0
+#@ foobox-google-analytics
+msgid "bradvin"
+msgstr "bradvin"
+
+#. translators: plugin header field 'AuthorURI'
+#: foobox-google-analytics.php:0
+#@ foobox-google-analytics
+msgid "http://fooplugins.com"
+msgstr "http://fooplugins.com"
+
+#. translators: plugin header field 'Version'
+#: foobox-google-analytics.php:0
+#@ foobox-google-analytics
+msgid "1.0.2"
+msgstr ""
+
+#: includes/foolic_update_checker.php:139
+#: includes/foolic_update_checker_v1_5_1.php:93
+#, php-format
+#@ foobox-google-analytics
+msgid "An unknown error occurred while getting info for the plugin %s. Response: %s"
+msgstr "Ein unbekannter Fehler ist beim abrufen der Plugin-Informationen für %s aufgetreten. Antwort: %s"
+
+#: includes/foolic_update_checker.php:147
+#: includes/foolic_update_checker_v1_5_1.php:101
+#@ foobox-google-analytics
+msgid "An unknown error occurred while getting info for the plugin %"
+msgstr "Ein unbekannter Fehler ist beim abrufen der Plugin-Informationen für %s aufgetreten"
+
+#: class-foobox-google-analytics.php:153
+#@ foobox-google-analytics
+msgid "Images"
+msgstr "Bilder"
+
+#: class-foobox-google-analytics.php:162
+#@ foobox-google-analytics
+msgid "View"
+msgstr "View"
+
+#: class-foobox-google-analytics.php:180
+#@ foobox-google-analytics
+msgid "Social Share"
+msgstr "Social-Share"
+
+#: class-foobox-google-analytics.php:188
+#@ foobox-google-analytics
+msgid "Javascript Output (Debug)"
+msgstr "Javascript Output (Debug)"
+
+#: class-foobox-google-analytics.php:160
+#@ foobox-google-analytics
+msgid "Event Action"
+msgstr "Event-Aktion"
+
+#: class-foobox-google-analytics.php:178
+#@ foobox-google-analytics
+msgid "Social Category"
+msgstr "Social-Kategorie"
+
+#: class-foobox-google-analytics.php:151
+#@ foobox-google-analytics
+msgid "Event Category"
+msgstr "Event-Kategorie"
+
