@@ -79,6 +79,7 @@ class FooBox_Extension_For_Google_Analytics {
 		if (is_admin()) {
 
 			add_action('foobox_pre_tab', array($this, 'add_ga_settings_tab'));
+			add_action( 'plugins_loaded', array( $this, 'load_text_domain' ) );
 
 		} else {
 
@@ -92,6 +93,10 @@ class FooBox_Extension_For_Google_Analytics {
 			return $GLOBALS['foobox'];
 		}
 		return false;
+	}
+	
+	function load_text_domain() {
+		load_plugin_textdomain( 'foobox-google-analytics', false, dirname(plugin_basename(__FILE__)) . '/languages/' );
 	}
 
 	public function init_scripts() {
@@ -143,7 +148,7 @@ class FooBox_Extension_For_Google_Analytics {
 
 			$foobox->admin_settings_add(array(
 				'id'      => 'ga_event_category',
-				'title'   => 'Event Category',
+				'title'   => __( 'Event Category', 'foobox-google-analytics' ),
 				'desc'    => __('Used in event tracking, this is the name for the group of objects you want to track. In this scenario, the group of objects are your images shown within FooBox.', 'foobox-google-analytics'),
 				'default' => __( 'Images', 'foobox-google-analytics' ),
 				'type'    => 'text',
@@ -152,7 +157,7 @@ class FooBox_Extension_For_Google_Analytics {
 
 			$foobox->admin_settings_add(array(
 				'id'      => 'ga_event_action',
-				'title'   => 'Event Action',
+				'title'   => __( 'Event Action', 'foobox-google-analytics' ),
 				'desc'    => __('Used in event tracking, this is the name for the type of user interaction. In this scenario, viewing the image within FooBox.', 'foobox-google-analytics'),
 				'default' => __( 'View', 'foobox-google-analytics' ),
 				'type'    => 'text',
@@ -170,7 +175,7 @@ class FooBox_Extension_For_Google_Analytics {
 
 			$foobox->admin_settings_add(array(
 				'id'      => 'ga_social_category',
-				'title'   => 'Social Category',
+				'title'   => __( 'Social Category', 'foobox-google-analytics' ),
 				'desc'    => __('Used in social tracking, this is the category used when tracking social share events from FooBox.', 'foobox-google-analytics'),
 				'default' => __( 'Social Share', 'foobox-google-analytics' ),
 				'type'    => 'text',

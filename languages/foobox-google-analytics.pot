@@ -12,98 +12,147 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: class-foobox-google-analytics.php:115
+#: class-foobox-google-analytics.php:120
+#@ foobox-google-analytics
 msgid "Google Analytics"
 msgstr ""
 
-#: class-foobox-google-analytics.php:119
+#: class-foobox-google-analytics.php:124
+#@ foobox-google-analytics
 msgid "Enable Pageview Tracking"
 msgstr ""
 
-#: class-foobox-google-analytics.php:120
-msgid ""
-"If enabled, a pageview will be recorded when an image is opened in FooBox."
+#: class-foobox-google-analytics.php:125
+#@ foobox-google-analytics
+msgid "If enabled, a pageview will be recorded when an image is opened in FooBox."
 msgstr ""
 
-#: class-foobox-google-analytics.php:128
+#: class-foobox-google-analytics.php:133
+#@ foobox-google-analytics
 msgid "Track Deeplink Pageviews"
 msgstr ""
 
-#: class-foobox-google-analytics.php:129
-msgid ""
-"If both pageview tracking and FooBox deeplinking is enabled, then the "
-"deeplink URL will be recorded in Google Analytics."
+#: class-foobox-google-analytics.php:134
+#@ foobox-google-analytics
+msgid "If both pageview tracking and FooBox deeplinking is enabled, then the deeplink URL will be recorded in Google Analytics."
 msgstr ""
 
-#: class-foobox-google-analytics.php:137
+#: class-foobox-google-analytics.php:142
+#@ foobox-google-analytics
 msgid "Enable Event Tracking"
 msgstr ""
 
-#: class-foobox-google-analytics.php:138
-msgid ""
-"If enabled, a custom event will be recorded when an image is opened in "
-"FooBox."
+#: class-foobox-google-analytics.php:143
+#@ foobox-google-analytics
+msgid "If enabled, a custom event will be recorded when an image is opened in FooBox."
 msgstr ""
 
-#: class-foobox-google-analytics.php:147
-msgid ""
-"Used in event tracking, this is the name for the group of objects you want "
-"to track. In this scenario, the group of objects are your images shown "
-"within FooBox."
+#: class-foobox-google-analytics.php:151
+#@ foobox-google-analytics
+msgid "Event Category"
 msgstr ""
 
-#: class-foobox-google-analytics.php:156
-msgid ""
-"Used in event tracking, this is the name for the type of user interaction. "
-"In this scenario, viewing the image within FooBox."
+#: class-foobox-google-analytics.php:152
+#@ foobox-google-analytics
+msgid "Used in event tracking, this is the name for the group of objects you want to track. In this scenario, the group of objects are your images shown within FooBox."
 msgstr ""
 
-#: class-foobox-google-analytics.php:164
+#: class-foobox-google-analytics.php:153
+#@ foobox-google-analytics
+msgid "Images"
+msgstr ""
+
+#: class-foobox-google-analytics.php:160
+#@ foobox-google-analytics
+msgid "Event Action"
+msgstr ""
+
+#: class-foobox-google-analytics.php:161
+#@ foobox-google-analytics
+msgid "Used in event tracking, this is the name for the type of user interaction. In this scenario, viewing the image within FooBox."
+msgstr ""
+
+#: class-foobox-google-analytics.php:162
+#@ foobox-google-analytics
+msgid "View"
+msgstr ""
+
+#: class-foobox-google-analytics.php:169
+#@ foobox-google-analytics
 msgid "Enable Social Tracking"
 msgstr ""
 
-#: class-foobox-google-analytics.php:165
-msgid ""
-"If enabled, all social shares from FooBox will be tracked as an event in "
-"Google Analytics."
+#: class-foobox-google-analytics.php:170
+#@ foobox-google-analytics
+msgid "If enabled, all social shares from FooBox will be tracked as an event in Google Analytics."
 msgstr ""
 
-#: class-foobox-google-analytics.php:174
-msgid ""
-"Used in social tracking, this is the category used when tracking social "
-"share events from FooBox."
+#: class-foobox-google-analytics.php:178
+#@ foobox-google-analytics
+msgid "Social Category"
 msgstr ""
 
-#: class-foobox-google-analytics.php:183
-msgid "Javscript Output (Debug)"
+#: class-foobox-google-analytics.php:179
+#@ foobox-google-analytics
+msgid "Used in social tracking, this is the category used when tracking social share events from FooBox."
 msgstr ""
 
-#: includes/foolic_update_checker_v1_5_1.php:93
-msgid ""
-"An unknown error occurred while getting info for the plugin %s. Response: %s"
+#: class-foobox-google-analytics.php:180
+#@ foobox-google-analytics
+msgid "Social Share"
 msgstr ""
 
-#: includes/foolic_update_checker_v1_5_1.php:101
-msgid "An unknown error occurred while getting info for the plugin %"
+#: class-foobox-google-analytics.php:188
+#@ foobox-google-analytics
+msgid "Javascript Output (Debug)"
 msgstr ""
 
-#. Plugin Name of the plugin/theme
+#. translators: plugin header field 'Name'
+#: foobox-google-analytics.php:0
+#@ foobox-google-analytics
 msgid "FooBox Google Analytics Extension"
 msgstr ""
 
-#. Plugin URI of the plugin/theme
+#. translators: plugin header field 'PluginURI'
+#: foobox-google-analytics.php:0
+#@ foobox-google-analytics
 msgid "https://github.com/fooplugins/foobox-google-analytics"
 msgstr ""
 
-#. Description of the plugin/theme
-msgid ""
-"Allows you to track Google Analytics events when viewing images in FooBox"
+#. translators: plugin header field 'Description'
+#: foobox-google-analytics.php:0
+#@ foobox-google-analytics
+msgid "Allows you to track Google Analytics events when viewing images in FooBox"
 msgstr ""
 
-#. Author of the plugin/theme
+#. translators: plugin header field 'Author'
+#: foobox-google-analytics.php:0
+#@ foobox-google-analytics
 msgid "bradvin"
 msgstr ""
 
-#. Author URI of the plugin/theme
+#. translators: plugin header field 'AuthorURI'
+#: foobox-google-analytics.php:0
+#@ foobox-google-analytics
 msgid "http://fooplugins.com"
 msgstr ""
+
+#. translators: plugin header field 'Version'
+#: foobox-google-analytics.php:0
+#@ foobox-google-analytics
+msgid "1.0.2"
+msgstr ""
+
+#: includes/foolic_update_checker.php:139
+#: includes/foolic_update_checker_v1_5_1.php:93
+#, php-format
+#@ foobox-google-analytics
+msgid "An unknown error occurred while getting info for the plugin %s. Response: %s"
+msgstr ""
+
+#: includes/foolic_update_checker.php:147
+#: includes/foolic_update_checker_v1_5_1.php:101
+#@ foobox-google-analytics
+msgid "An unknown error occurred while getting info for the plugin %"
+msgstr ""
+
