@@ -3,13 +3,59 @@
  * FooLicensing Update Checker
  *
  * @author    Brad Vincent
- * @version   1.4
+ * @version   1.6
  */
 
-if (!class_exists('foolic_update_checker_v1_5_1')) {
+if (!class_exists('foolic_update_checker')) {
 
-	class foolic_update_checker_v1_5_1 {
+	class foolic_update_checker {
+		
+		/**
+		 * Plugin version, used for cache-busting of style and script file references.
+		 *
+		 * @since   1.6.0
+		 *
+		 * @var     string
+		 */
+		protected $version = '1.6';
 
+		/**
+		 * Instance of this class.
+		 *
+		 * @since    1.6.0
+		 *
+		 * @var      object
+		 */
+		protected static $instance = null;
+
+		/**
+		 * Return an instance of this class.
+		 *
+		 * @since     1.6.0
+		 *
+		 * @return    object    A single instance of this class.
+		 */
+		public static function get_instance() {
+
+			// If the single instance hasn't been set, set it now.
+			if (null == self::$instance) {
+				self::$instance = new self;
+			}
+
+			return self::$instance;
+		}
+		
+		/**
+		 * Initialize the plugin
+		 *
+		 * @since     1.6.0
+		 */
+		private function __construct() {
+
+			self::$instance = $this;
+			
+		}
+		
 		protected $plugin_file;
 		protected $plugin_update_url;
 		protected $plugin_version;
@@ -17,7 +63,7 @@ if (!class_exists('foolic_update_checker_v1_5_1')) {
 		protected $update_key;
 		protected $license_key;
 
-		function foolic_update_checker_v1_5_1($plugin_file, $plugin_update_url, $plugin_slug, $license_key) {
+		function update_checker($plugin_file, $plugin_update_url, $plugin_slug, $license_key) {
 			$this->plugin_file       = $plugin_file;
 			$this->plugin_update_url = $plugin_update_url;
 			$this->plugin_version    = false;

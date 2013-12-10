@@ -1,5 +1,5 @@
 # FooBox Google Analytics Extension #
-**Contributors:** [@bradvin](https://github.com/bradvin)
+**Contributors:** [@bradvin](https://github.com/bradvin); [@cfoellmann](https://github.com/cfoellmann)
 
 Allows you to track Google Analytics events when viewing images in FooBox
 
